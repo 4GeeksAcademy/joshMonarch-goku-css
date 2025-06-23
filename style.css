@@ -1,0 +1,472 @@
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  border: thin solid black;
+  background-color: transparent;
+}
+
+.name {
+  position: absolute;
+  padding: 0 10px 0 10px;
+  top: 70%;
+  left: 50%;
+  width: fit-content;
+  height: fit-content;
+  transform: translate(-50%, -50%);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  font: 2.5em "Cookie";
+}
+
+.face {
+  position: absolute;
+  width: 140px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) perspective(1000px) rotateX(-40deg);
+  border-radius: 50% 50% 50% 50% / 30% 30% 50% 50%;
+  border: thin solid black;
+  background-color: burlywood;
+  box-shadow: inset 0px 6px 0px 11px rgba(148, 123, 90, 0.5);
+  z-index: 3;
+}
+
+.spot {
+  position: inherit;
+  z-index: 4;
+}
+
+.spot.big {
+  width: 50px;
+  height: 50px;
+  top: 70%;
+  left: 8%;
+  border-radius: 50%;
+  background-color: rgba(250, 202, 99, 0.3);
+  clip-path: shape(from 0 0, curve to 100% 100% with 0 0 / 0 100%);
+}
+
+.face > .spot.small:first-child {
+  width: 20px;
+  height: 20px;
+  top: 80%;
+  left: 55%;
+  border-radius: 10px 20px / 8px 20px;
+  background-color: rgba(223, 169, 98, 0.3);
+}
+
+.face > .spot.small:nth-child(2) {
+  width: 10px;
+  height: 10px;
+  top: 65%;
+  left: 61%;
+  border-radius: 20px 10px / 11px 6px;
+  background-color: rgba(250, 202, 99, 0.3);
+}
+
+.left-ear,
+.right-ear {
+  position: absolute;
+  top: 40%;
+  width: 25px;
+  height: 60px;
+  background-color: burlywood;
+  border: thin solid black;
+  border-radius: 50%;
+  mix-blend-mode: lighten;
+}
+
+.left-ear {
+  box-shadow: inset -6px 0px 3px 2px rgba(148, 123, 90, 0.5);
+  transform: rotateY(-30deg) rotateZ(-5deg);
+  left: -15%;
+}
+
+.right-ear {
+  box-shadow: inset 6px 0px 3px -2px rgba(148, 123, 90, 0.5);
+  transform: rotateY(-30deg) rotateZ(5deg);
+  right: -15%;
+}
+
+.right-ear::after,
+.left-ear::before {
+  content: " ";
+  position: absolute;
+  height: 40px;
+  width: 15px;
+  background-color: rgb(218, 162, 89);
+  border: thin solid black;
+  top: 50%;
+  border-radius: 50%;
+  mix-blend-mode: darken;
+}
+
+.left-ear::before {
+  left: 65%;
+  transform: translate(-50%, -50%);
+}
+
+.right-ear::after {
+  right: 65%;
+  transform: translate(50%, -50%);
+}
+
+.right-ear::before,
+.left-ear::after {
+  content: " ";
+  position: absolute;
+  top: 35%;
+  width: 18px;
+  height: 10px;
+  border-top: thin solid black;
+  border-bottom: thin solid black;
+  border-radius: 40%;
+  background-color: burlywood;
+}
+
+.left-ear::after {
+  left: 20%;
+  transform: rotateZ(-20deg);
+}
+
+.right-ear::before {
+  right: 20%;
+  transform: rotateZ(20deg);
+  z-index: 1;
+}
+
+.left-eye,
+.right-eye {
+  position: inherit;
+  width: 50px;
+  height: 40px;
+  top: 30%;
+  background-color: white;
+}
+
+.right-eye {
+  border-right: 1.5px solid black;
+  border-radius: 100% 8% 4% 8% / 84% 86% 13% 8%;
+  left: 56%;
+}
+
+.right-eye::after,
+.left-eye::before {
+  content: " ";
+  position: inherit;
+  width: 65px;
+  height: 10px;
+  top: -5%;
+  background-color: black;
+}
+
+.right-eye::after {
+  left: 48%;
+  transform: translate(-50%, 50%) rotateZ(-30deg) skew(-30deg);
+}
+
+.left-eye {
+  border-left: 1.5px solid black;
+  border-radius: 8% 100% 8% 4% / 86% 84% 8% 13%;
+  right: 56%;
+}
+
+.left-eye::before {
+  left: 52%;
+  transform: translate(-50%, 50%) rotateZ(30deg) skew(30deg);
+}
+
+.left-eye > .pupil,
+.right-eye > .pupil {
+  position: inherit;
+  top: 40%;
+  width: 10px;
+  height: 20px;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background-color: black;
+}
+
+.left-eye > .pupil {
+  left: 70%;
+}
+
+.right-eye > .pupil {
+  right: 70%;
+}
+
+.left-cheek,
+.right-cheek {
+  position: inherit;
+  top: 55%;
+  width: 40px;
+  height: 10px;
+  border-top: thin solid black;
+  border-radius: 50%;
+}
+
+.left-cheek {
+  left: 12%;
+}
+
+.right-cheek::after,
+.left-cheek::after {
+  content: " ";
+  position: inherit;
+  top: 0;
+  right: 0;
+  width: 27px;
+  height: inherit;
+  border-top: thin solid black;
+  border-radius: 50%;
+}
+
+.right-cheek {
+  left: 59%;
+}
+
+.nose,
+.mouth {
+  position: inherit;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.nose {
+  top: 60%;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid black;
+  border-left: thin solid black;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 40%;
+}
+
+.mouth {
+  top: 68%;
+  width: 40px;
+  height: 20px;
+  border-bottom: 2px solid black;
+  border-radius: 50%;
+}
+
+.back,
+.front {
+  position: absolute;
+  border: thin solid black;
+  width: 100%;
+  height: 100%;
+}
+
+.back > .hair,
+.front > .hair {
+  position: inherit;
+  border-radius: 50% / 100% 100% 0% 0%;
+  background-color: black;
+}
+
+.front > .part {
+  z-index: 4;
+}
+
+.front > .part:first-child,
+.front > .part:last-child {
+  width: 80px;
+  height: 100px;
+  top: 24%;
+  border-radius: 0;
+  clip-path: shape(from 100% 0, curve to 100% 100% with 0 0 / 0 50%);
+  mix-blend-mode: darken;
+}
+
+.front > .part:first-child {
+  will-change: transform;
+  left: 30%;
+}
+
+.front > .part:last-child {
+  transform: rotateY(0.5turn);
+  right: calc(30% + 1px);
+}
+
+.front > .part:first-child::after,
+.front > .part:last-child::after {
+  content: " ";
+  position: inherit;
+  height: 70px;
+  bottom: 0;
+  left: 100%;
+  transform: translateX(-50%);
+  background-color: white;
+}
+
+.front > .part:first-child::after {
+  width: 80px;
+  clip-path: shape(from 50% 0, curve to 50% 100% with 0 0 / 0 150%);
+}
+
+.front > .part:last-child::after {
+  width: 150px;
+  clip-path: shape(from 50% 0, curve to 50% 100% with 0 0 / 70% 200%);
+}
+
+.front > .part:nth-child(2),
+.front > .part:nth-last-child(2) {
+  width: 80px;
+  height: 30px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  mix-blend-mode: darken;
+
+  top: 31%;
+}
+
+.front > .part:nth-child(2) {
+  transform: rotateZ(-70deg);
+  left: 25%;
+}
+
+.front > .part:nth-last-child(2) {
+  transform: rotateZ(70deg);
+  right: 25%;
+}
+
+.front > .part:nth-child(2)::after,
+.front > .part:nth-last-child(2)::after {
+  content: " ";
+  position: inherit;
+  width: 80px;
+  height: 30px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  mix-blend-mode: lighten;
+  clip-path: shape(from 0 100%, curve to 100% 100% with 20% 80% / 100% 100%);
+}
+
+.front > .part:nth-child(3) {
+  width: 130px;
+  height: 60px;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: inset 0 2px 6px -2px rgb(255, 255, 255),
+    0px -14px 4px 0px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+
+.front > .part:nth-child(4) {
+  width: 2px;
+  height: 55px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 100%;
+  top: 30%;
+  left: 49%;
+  transform: translateX(-50%) rotateZ(0.52turn);
+  z-index: 5;
+}
+
+.back > .part:first-child,
+.back > .part:last-child {
+  width: 40px;
+  height: 12px;
+  top: calc(55% + 1px);
+}
+
+.back > .part:first-child {
+  right: 27%;
+}
+
+.back > .part:last-child {
+  left: 27%;
+}
+
+.back > .part:nth-child(2),
+.back > .part:nth-last-child(2) {
+  width: 60px;
+  height: 25px;
+  top: 49%;
+}
+
+.back > .part:nth-child(2) {
+  right: 21%;
+  transform: rotateZ(-5deg);
+}
+
+.back > .part:nth-last-child(2) {
+  left: 21%;
+  transform: rotateZ(5deg);
+}
+
+.back > .part:nth-child(2),
+.back > .part:nth-last-child(2),
+.back > .part:nth-child(3),
+.back > .part:nth-last-child(3),
+.back > .part:nth-child(4),
+.back > .part:nth-child(7) {
+  box-shadow: inset 0 4px 9px -2px rgb(255, 255, 255),
+    0px -14px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.back > .part:nth-child(3),
+.back > .part:nth-last-child(3) {
+  width: 120px;
+  height: 50px;
+  top: 35%;
+}
+
+.back > .part:nth-child(3) {
+  right: 15%;
+  transform: rotateZ(-20deg);
+}
+
+.back > .part:nth-last-child(3) {
+  left: 10%;
+  transform: rotateZ(20deg);
+}
+
+.back > .part:nth-child(4) {
+  width: 140px;
+  height: 60px;
+  top: 21%;
+  left: 10%;
+  transform: rotateZ(30deg);
+}
+
+.back > .part:nth-child(5) {
+  box-shadow: inset 0px -4px 9px -2px rgb(255, 255, 255),
+    0px -14px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 110px;
+  height: 50px;
+  top: 15%;
+  left: 25%;
+  transform: rotateZ(60deg);
+  z-index: 3;
+}
+
+.back > .part:nth-child(6) {
+  box-shadow: inset 0px 2px 6px -2px rgb(255, 255, 255),
+    0px -14px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 30px;
+  height: 6px;
+  top: 27%;
+  left: 63%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 100%;
+  transform: rotateZ(-50deg);
+}
+
+.back > .part:nth-child(7) {
+  width: 60px;
+  height: 25px;
+  top: 29%;
+  left: 62%;
+  transform: rotateZ(-30deg);
+}
